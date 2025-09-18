@@ -1,0 +1,188 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hover effect for car cards */
+.car-card:hover .car-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.car-details {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Container and grid */
+.container_big {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.col-sm-4 {
+  flex: 1 1 30%;
+  max-width: 30%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Banner item */
+.banner_item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.banner_item:hover {
+  transform: scale(1.03);
+}
+
+/* Banner image */
+.banner_image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Enforce 590x700 aspect ratio crop with center focus */
+.banner_image--crop-590x700 {
+  aspect-ratio: 590 / 700;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Caption overlay */
+.banner_caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.banner_item:hover .banner_caption {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Caption text */
+.caption_text {
+  text-align: center;
+}
+
+/* Headings */
+.h1 {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.2em 0;
+}
+
+.h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.2em 0;
+}
+
+.h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.2em 0;
+}
+
+/* Text colors */
+.text-primary {
+  color: #00aaff;
+}
+
+.megaSale {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.custom_sale {
+  font-weight: 700;
+  color: #00aaff;
+}
+
+.salePercent, .salePercentOff {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-left: 2px;
+}
+
+.saleOn {
+  margin-left: 8px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.allTop {
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn, .shopNow {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #00aaff;
+  color: white;
+  font-weight: 600;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover, .shopNow:hover {
+  background-color: #0088cc;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .col-sm-4 {
+    max-width: 45%;
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .col-sm-4 {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}

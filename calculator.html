@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Loan Calculator</title>
+  <script>
+    function calculateLoan() {
+      const totalAmount = parseFloat(document.getElementById('totalAmount').value);
+      const downPayment = parseFloat(document.getElementById('downPayment').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value);
+      const loanPeriod = parseFloat(document.getElementById('loanPeriod').value);
+
+      if (isNaN(totalAmount) || isNaN(downPayment) || isNaN(interestRate) || isNaN(loanPeriod)) {
+        alert('Sila masukkan semua nilai dengan betul.');
+        return;
+      }
+      if (downPayment > totalAmount) {
+        alert('Down payment tidak boleh lebih besar daripada jumlah keseluruhan.');
+        return;
+      }
+      const principal = totalAmount - downPayment;
+      const monthlyInterestRate = interestRate / 100 / 12;
+      const numberOfPayments = loanPeriod * 12;
+
+      let monthlyPayment;
+      if (monthlyInterestRate === 0) {
+        monthlyPayment = principal / numberOfPayments;
+      } else {
+        monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+      }
+
+      document.getElementById('result').textContent = 
+        `Bayaran bulanan anda ialah: RM ${monthlyPayment.toFixed(2)}`;
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f9fafb;
+      color: #111;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      background-color: #0284c7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0369a1;
+    }
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #065f46;
+    }
+    .home-button {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #64748b;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background-color: #475569;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="home-button" title="Back to Home"> ← Home</a>
+
+  <h1>Kalkulator Pinjaman Kereta</h1>
+  <form onsubmit="event.preventDefault(); calculateLoan();">
+    <label for="totalAmount">Jumlah Keseluruhan (RM):</label>
+    <input type="number" id="totalAmount" min="0" step="0.01" required />
+
+    <label for="downPayment">Bayaran Pendahuluan (RM):</label>
+    <input type="number" id="downPayment" min="0" step="0.01" required />
+
+    <label for="interestRate">Kadar Faedah Tahunan (%):</label>
+    <input type="number" id="interestRate" min="0" step="0.01" required />
+
+    <label for="loanPeriod">Tempoh Pinjaman (tahun):</label>
+    <input type="number" id="loanPeriod" min="1" step="1" required />
+
+    <button type="submit">Kira Bayaran Bulanan</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>

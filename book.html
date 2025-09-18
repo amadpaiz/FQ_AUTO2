@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kereta EV | Book a Test Drive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Warna tema Navy Blue */
+    :root {
+      --primary: #0a2342; /* Navy Blue */
+      --secondary: #1d3557; /* Lebih terang sedikit */
+      --accent: #4cc9f0; /* Accent biru muda */
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--primary);
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary) !important;
+      color: white !important;
+    }
+
+    header a,
+    header button {
+      color: white !important;
+      border-color: rgba(255,255,255,0.3) !important;
+    }
+
+    header a:hover {
+      opacity: 0.8;
+    }
+
+    /* Butang */
+    .bg-sky-600 {
+      background-color: var(--secondary) !important;
+    }
+    .bg-sky-600:hover {
+      background-color: var(--accent) !important;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Form input and select styling overrides */
+    input, select {
+      border-color: var(--secondary);
+      color: var(--primary);
+      background-color: transparent;
+    }
+
+    .home-button {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #64748b;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background-color: #475569;
+    }
+
+    input::placeholder {
+      color: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+
+    <a href="index.html" class="home-button" title="Back to Home">🏠 Home</a>
+  <!-- Book a Test Drive -->
+  <section id="hubungi" class="max-w-7xl mx-auto px-4 py-16" style="color: var(--primary); background-color: #ffffff;">
+    <div class="grid lg:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold" style="color: var(--primary);">Book a Test Drive</h2>
+        <p class="mt-2" style="color: var(--secondary);">
+          Fill in the brief information and our team will get back to you.
+        </p>
+        <ul class="mt-4 text-sm list-disc pl-5 space-y-1" style="color: var(--secondary);">
+          <li>EV incentives are available – terms & conditions apply.</li>
+          <li>Battery warranty up to 8 years.</li>
+          <li>Nationwide charging network (AC & DC).</li>
+        </ul>
+      </div>
+      <form class="p-6 rounded-2xl border" style="border-color: var(--secondary); background-color: white; color: var(--primary);" onsubmit="event.preventDefault(); alert('Thank you! Your request is accepted.');">
+        <div>
+          <label class="block text-sm font-semibold" style="color: var(--primary);">Name</label>
+          <input type="text" placeholder="Nama penuh" class="mt-1 w-full px-3 py-2 rounded-xl border" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold" style="color: var(--primary);">Email</label>
+          <input type="email" placeholder="nama@contoh.com" class="mt-1 w-full px-3 py-2 rounded-xl border" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold" style="color: var(--primary);">Phone</label>
+          <input type="tel" placeholder="01X-XXXXXXX" class="mt-1 w-full px-3 py-2 rounded-xl border" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold" style="color: var(--primary);">Variants of Interest</label>
+          <select class="mt-1 w-full px-3 py-2 rounded-xl border">
+            <option>RWD Standard</option>
+            <option>AWD Long Range</option>
+            <option>Performance</option>
+          </select>
+        </div>
+        <button type="submit" class="mt-4 px-5 py-3 rounded-2xl bg-sky-600 text-white w-full">Send</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
